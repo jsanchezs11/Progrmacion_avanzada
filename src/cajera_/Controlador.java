@@ -33,6 +33,7 @@ Banco banco;
         Cajera cajera1 = new Cajera("Cajera:Maria", initialTime);
         Cajera cajera2 = new Cajera("Cajero:Juan", initialTime); 
         
+        
       banco.addCajera(cajera1);
       banco.addCajera(cajera2); 
     }

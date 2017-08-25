@@ -72,6 +72,12 @@ private ArrayList<Cajera> listcajeras;
         this.listcajeras.remove(ca);
         
     }
+    
+    public void activar(){
+        for(Cajera c: this.listcajeras){
+         c.start();
+       }
+}
      public synchronized static Cliente siguienteCliente() throws Exception {
         if(!listacliente.isEmpty()){
             Cliente aux = listacliente.get(0);
