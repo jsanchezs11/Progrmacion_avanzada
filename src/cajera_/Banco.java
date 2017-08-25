@@ -53,6 +53,15 @@ private ArrayList<Cajera> listcajeras;
     public void setListacliente(ArrayList<Cliente> listacliente) {
         this.listacliente = listacliente;
     }
+
+    public ArrayList<Cajera> getListcajeras() {
+        return listcajeras;
+    }
+
+    public void setListcajeras(ArrayList<Cajera> listcajeras) {
+        this.listcajeras = listcajeras;
+    }
+    
      public void agregarCliente(Cliente c){        
         this.listacliente.add(c);
     }

@@ -51,20 +51,24 @@ ArrayList <Cuenta> listacuentas;
     public void setListacuentas(ArrayList<Cuenta> listacuentas) {
         this.listacuentas = listacuentas;
     }
+    @Override
+    public String toString(){
+        return getCedula() + " - " + getNombre() + " " + getCedula();
+    }
      private void crearCuentas(){
         Random x = new Random();
         
         int s = (int) (x.nextDouble()*2 + 1);
-        int t = (int) (x.nextDouble()*3 + 1);
+        int t = (int) (x.nextDouble()*2 + 1);
         
         for(int i=0; i<s; i++){
-            int r = (int) (x.nextDouble()*5000000 + 100000);
-            Cuenta a = new CuentaAhorros(r);
+            int r = (int) (x.nextDouble()*100000 + 1000);
+            Cuenta a = new CuentaAhorro(r);
             this.agregarCuenta(a);
         }
         
         for(int i=0; i<t; i++){
-            int r = (int) (x.nextDouble()*5000000 + 100000);
+            int r = (int) (x.nextDouble()*20000 + 2000);
             Cuenta b = new CuentaCorriente(r);
             this.agregarCuenta(b);
         }
