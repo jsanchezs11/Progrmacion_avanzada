@@ -36,20 +36,22 @@ public class Cajera extends Thread  {
 
     @Override
     public void run() {
-       // procesarCompra();
+       procesarCompra();
     }
     public void procesarCompra() {
-        try {
+   try {
             while (true) {
-                Cliente cliente = Banco.siguienteCliente();
+               Cliente cliente = Banco.siguienteCliente();
+               for(int i=0;i<=Banco.listacliente.size();i++){
+                   
+               
+                this.esperarXsegundos(cliente.getListacuentas().get(i).getTiempo());
 
-                for (int i = 0; i < cliente.getListacuentas().; i++) {
-                    this.esperarXsegundos(cliente.getCarroCompra()[i]);
-                    System.out.println(Banco.cont + ") Procesado el producto " + (i + 1)
-                            + " del " + cliente.getNombre() + " por " + this.nombre + "->Tiempo: "
-                            + (System.currentTimeMillis() - this.initialTime) / 1000
-                            + "seg");
-                }
+                System.out.println("Procesada la cuenta (" + cliente.getListacuentas().get(i).getTipo() + ") del cliente "
+                        + cliente.getNombre() + " " + cliente.getCedula() + " por "
+                        + this.getNombre() + "; Tiempo --> " + (System.currentTimeMillis() - this.initialTime) / 1000
+                        + "seg");
+               }
             }
         } catch (Exception e) {
             System.out.println("La cajera " + this.nombre + " no tiene mas clientes que atender!");

@@ -15,20 +15,31 @@ public abstract class Cuenta {
     
     public int saldo;
     private String tipo;
-    public Cliente titular;
+    public Cliente cliente_t;
+    public int tiempo;
 
     public int getSaldo() {
         return saldo;
     }
+
+    public Cliente getCliente_t() {
+        return cliente_t;
+    }
+
+    public int getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(int tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public void setCliente_t(Cliente cliente_t) {
+        this.cliente_t = cliente_t;
+    }
   
 
-    public Cliente getTitular() {
-        return titular;
-    }
-
-    public void setTitular(Cliente titular) {
-        this.titular = titular;
-    }
+   
 
 
     public String getTipo() {

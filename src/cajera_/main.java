@@ -2,6 +2,7 @@ package cajera_;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 /**
  *
@@ -13,8 +14,18 @@ public class main extends javax.swing.JFrame {
      * Creates new form main
      */
     Controlador controla = new Controlador();
+    public DefaultListModel mod=new DefaultListModel();
+     public DefaultListModel mod2=new DefaultListModel();
     public main() {
         initComponents();
+        for(Cliente c: Banco.getListacliente()){
+        mod.addElement(c.getCedula()+"-"+c.getNombre());
+        }
+        
+        for(Cajera ca: controla.getBanco().getListcajeras()){
+        mod2.addElement(ca.getNombre());
+        }
+          jLabel1.setText(controla.getBanco().getNombre());
     }
 
     /**
@@ -67,18 +78,10 @@ public class main extends javax.swing.JFrame {
 
         jButton6.setText("ELIMINAR CAJERO");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        jList1.setModel(mod);
         jScrollPane1.setViewportView(jList1);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        jList2.setModel(mod2);
         jScrollPane2.setViewportView(jList2);
 
         jLabel1.setText("jLabel1");
@@ -134,19 +137,17 @@ public class main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
  private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {                                       
        jLabel1.setText(controla.getBanco().getNombre());
-       jList1.setListData(controla.getBanco().getListacliente().toArray());
-        jList1.setListData((String[]) controla.getBanco().getListcajeras().toArray());
+    
        
     }   
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        jLabel1.setText(controla.getBanco().getNombre());
-         jList1.setListData((String[]) controla.getBanco().getListacliente().toArray());
+      
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        Cliente c = (Cliente) (jList1.getSelectedValue());
+       // Cliente c = (Cliente) (jList1.getSelectedValue());
         
     }//GEN-LAST:event_jButton5ActionPerformed
 

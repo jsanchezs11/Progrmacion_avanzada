@@ -20,19 +20,21 @@ Banco banco;
        Cliente cliente1 = new Cliente( "Jorge Rudas", "23456");
        Cliente cliente2 = new Cliente( "Santiago Sanchez", "12345");
        Cliente cliente3 = new Cliente( "Jair Silva", "2366666");
+       Cliente cliente4 = new Cliente( "Gian Tovar", "222222");
 
         banco.addCliente(cliente1);
         banco.addCliente(cliente2);
         banco.addCliente(cliente3);
+        banco.addCliente(cliente4);
         long initialTime = System.currentTimeMillis();
         
          
        
-        Cajera cajera1 = new Cajera("Cajera 1", initialTime);
-        Cajera cajera2 = new Cajera("Cajera 2", initialTime); 
+        Cajera cajera1 = new Cajera("Cajera:Maria", initialTime);
+        Cajera cajera2 = new Cajera("Cajero:Juan", initialTime); 
         
-      
-        
+      banco.addCajera(cajera1);
+      banco.addCajera(cajera2); 
     }
       public Banco getBanco() {
         return banco;

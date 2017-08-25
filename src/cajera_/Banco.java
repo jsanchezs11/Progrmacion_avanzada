@@ -16,8 +16,7 @@ import java.util.Iterator;
  */
 public class Banco {
 private String nombre;    
-private ArrayList<Cliente> listacliente;
-private ArrayList<Transaccion> listatransaccion;
+public static ArrayList<Cliente> listacliente;
 private ArrayList<Cajera> listcajeras;
  static Iterator  clientes;
 
@@ -31,6 +30,7 @@ private ArrayList<Cajera> listcajeras;
     public Banco(String nombre){
      this.nombre = nombre;
      this.listacliente = new ArrayList();
+     this.listcajeras=new ArrayList();
     }
 
     public String getNombre() {
@@ -46,7 +46,7 @@ private ArrayList<Cajera> listcajeras;
   public void addCajera(Cajera ca) {
         listcajeras.add(ca);
     }
-    public ArrayList<Cliente> getListacliente() {
+    public static ArrayList<Cliente> getListacliente() {
         return listacliente;
     }
 
@@ -58,31 +58,29 @@ private ArrayList<Cajera> listcajeras;
         return listcajeras;
     }
 
-    public void setListcajeras(ArrayList<Cajera> listcajeras) {
+    public  void setListcajeras(ArrayList<Cajera> listcajeras) {
         this.listcajeras = listcajeras;
     }
     
-     public void agregarCliente(Cliente c){        
-        this.listacliente.add(c);
-    }
-    
+   
     public void eliminarCliente(Cliente c){
         this.listacliente.remove(c);
     }
     
-    public void agregarCajera(Cajera ca){
-        this.listcajeras.add(ca);        
-    }
     
     public void eliminarCajera(Cajera ca){
         this.listcajeras.remove(ca);
+        
     }
-   public synchronized static Cliente siguienteCliente() throws Exception {
- //   public static Cliente siguienteCliente() throws Exception {
-        if (clientes.hasNext()) {
-            return (Cliente) clientes.next();
-        } else {
-            throw new Exception("No hay mas clientes");
+     public synchronized static Cliente siguienteCliente() throws Exception {
+        if(!listacliente.isEmpty()){
+            Cliente aux = listacliente.get(0);
+            listacliente.remove(0);
+            
+            return aux;
+        }
+        else{
+           throw new Exception("No hay mas clientes por atender");
         }
     }
 

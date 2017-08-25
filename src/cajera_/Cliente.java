@@ -26,7 +26,7 @@ ArrayList <Cuenta> listacuentas;
     }
  public void agregarCuenta(Cuenta c) {
         this.listacuentas.add(c);
-        c.setTitular(this);
+        c.setCliente_t(this);
     }
     public String getNombre() {
         return nombre;
@@ -53,23 +53,33 @@ ArrayList <Cuenta> listacuentas;
     }
     @Override
     public String toString(){
-        return getCedula() + " - " + getNombre() + " " + getCedula();
+        return  getNombre() + " " + getCedula();
+    }
+      public Cuenta cuentaAleatoria(){
+        Random al = new Random();
+        int r = (int) (al.nextDouble()*this.getListacuentas().size());
+        
+        Cuenta c = this.getListacuentas().get(r);
+        
+        return c;
     }
      private void crearCuentas(){
-        Random x = new Random();
+        Random n = new Random();
         
-        int s = (int) (x.nextDouble()*2 + 1);
-        int t = (int) (x.nextDouble()*2 + 1);
-        
+        int s = (int) (n.nextDouble()*2 + 1);
+        int t = (int) (n.nextDouble()*2 + 1);
+        int ti = (int) (n.nextDouble()*2 + 1);
+        int ah = (int) (n.nextDouble()*10000 + 1000);
+        int co = (int) (n.nextDouble()*20000 + 2000);
         for(int i=0; i<s; i++){
-            int r = (int) (x.nextDouble()*100000 + 1000);
-            Cuenta a = new CuentaAhorro(r);
+           
+            Cuenta a = new CuentaAhorro(ah,ti);
             this.agregarCuenta(a);
         }
         
         for(int i=0; i<t; i++){
-            int r = (int) (x.nextDouble()*20000 + 2000);
-            Cuenta b = new CuentaCorriente(r);
+            
+            Cuenta b = new CuentaCorriente(co,ti);
             this.agregarCuenta(b);
         }
     }
