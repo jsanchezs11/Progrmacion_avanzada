@@ -30,8 +30,8 @@ public class Index2 {
         cajera2.start();
     }
 
-    //public synchronized static Cliente siguienteCliente() throws Exception {
-    public static Cliente siguienteCliente() throws Exception {
+    public synchronized static Cliente siguienteCliente() throws Exception {
+ //   public static Cliente siguienteCliente() throws Exception {
         if (clientes.hasNext()) {
             return (Cliente) clientes.next();
         } else {

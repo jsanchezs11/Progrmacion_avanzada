@@ -1,6 +1,7 @@
 package cajera_;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,7 +16,18 @@ import java.util.ArrayList;
 public class Cliente {
 private String nombre;
 private String cedula;
-ArrayList <Transaccion> listatransaccion;
+ArrayList <Cuenta> listacuentas;
+
+    public Cliente(String nombre, String cedula) {
+        this.nombre = nombre;
+        this.cedula = cedula;
+          this.listacuentas = new ArrayList();
+        this.crearCuentas();
+    }
+ public void agregarCuenta(Cuenta c) {
+        this.listacuentas.add(c);
+        c.setTitular(this);
+    }
     public String getNombre() {
         return nombre;
     }
@@ -32,13 +44,32 @@ ArrayList <Transaccion> listatransaccion;
         this.cedula = cedula;
     }
 
-    public ArrayList<Transaccion> getListatransaccion() {
-        return listatransaccion;
+    public ArrayList<Cuenta> getListacuentas() {
+        return listacuentas;
     }
 
-    public void setListatransaccion(ArrayList<Transaccion> listatransaccion) {
-        this.listatransaccion = listatransaccion;
+    public void setListacuentas(ArrayList<Cuenta> listacuentas) {
+        this.listacuentas = listacuentas;
     }
+     private void crearCuentas(){
+        Random x = new Random();
+        
+        int s = (int) (x.nextDouble()*2 + 1);
+        int t = (int) (x.nextDouble()*3 + 1);
+        
+        for(int i=0; i<s; i++){
+            int r = (int) (x.nextDouble()*5000000 + 100000);
+            Cuenta a = new CuentaAhorros(r);
+            this.agregarCuenta(a);
+        }
+        
+        for(int i=0; i<t; i++){
+            int r = (int) (x.nextDouble()*5000000 + 100000);
+            Cuenta b = new CuentaCorriente(r);
+            this.agregarCuenta(b);
+        }
+    }
+
 
         
 }
