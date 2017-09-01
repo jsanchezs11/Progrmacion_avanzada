@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cajera_;
+package Modelo;
 
 /**
  *
@@ -11,12 +11,23 @@ package cajera_;
  */
 public class Cajera extends Thread  {
     private String nombre;
+    private String cedula;
     private long initialTime;
 
-    public Cajera(String nombre, long initialTime) {
+    public Cajera(String nombre, String cedula, long initialTime) {
         this.nombre = nombre;
+        this.cedula = cedula;
         this.initialTime = initialTime;
     }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
 
     public String getNombre() {
         return nombre;

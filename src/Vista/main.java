@@ -1,5 +1,9 @@
-package cajera_;
+package Vista;
 
+import Modelo.Banco;
+import Modelo.Cajera;
+import Modelo.Cliente;
+import Modelo.Controlador;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -13,8 +17,8 @@ public class main extends javax.swing.JFrame {
     /**
      * Creates new form main
      */
-    Controlador controla = new Controlador();
-    public DefaultListModel mod=new DefaultListModel();
+    public static Controlador controla = new Controlador();
+    public static DefaultListModel mod=new DefaultListModel();
      public DefaultListModel mod2=new DefaultListModel();
     public main() {
         initComponents();
@@ -153,6 +157,8 @@ public class main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Crear_persona frm = new Crear_persona();
+        frm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:

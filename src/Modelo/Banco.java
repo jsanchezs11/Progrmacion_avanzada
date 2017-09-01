@@ -1,4 +1,4 @@
-package cajera_;
+package Modelo;
 
 
 import java.util.ArrayList;

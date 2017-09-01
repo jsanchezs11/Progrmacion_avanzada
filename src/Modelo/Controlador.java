@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cajera_;
+package Modelo;
 
 import java.util.Iterator;
 
@@ -30,8 +30,8 @@ Banco banco;
         
          
        
-        Cajera cajera1 = new Cajera("Cajera:Maria", initialTime);
-        Cajera cajera2 = new Cajera("Cajero:Juan", initialTime); 
+        Cajera cajera1 = new Cajera("Cajera:Maria","12", initialTime);
+        Cajera cajera2 = new Cajera("Cajero:Juan","32", initialTime); 
         
         
       banco.addCajera(cajera1);
@@ -43,5 +43,13 @@ Banco banco;
 
     public void setBanco(Banco banco) {
         this.banco = banco;
+    }
+      public synchronized Cliente addCliente(String nombre, String cedula){
+        
+        Cliente e = new Cliente(nombre, cedula);
+        
+        banco.addCliente(e);
+
+        return e;
     }
 }

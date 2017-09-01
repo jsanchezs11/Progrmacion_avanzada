@@ -1,4 +1,4 @@
-package cajera_;
+package Modelo;
 
 import patrones.monitor.*;
 import java.util.ArrayList;
@@ -25,8 +25,8 @@ public class Index2 {
         
         
        
-        Cajera cajera1 = new Cajera("Cajera 1", initialTime);
-        Cajera cajera2 = new Cajera("Cajera 2", initialTime); 
+        Cajera cajera1 = new Cajera("Cajera 1", "23",initialTime);
+        Cajera cajera2 = new Cajera("Cajera 2", "44",initialTime); 
         
         cajera1.start();
         cajera2.start();

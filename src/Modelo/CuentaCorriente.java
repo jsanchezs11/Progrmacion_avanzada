@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cajera_;
+package Modelo;
 
 /**
  *
- * @author soportecsi
+ * @author Fuller 101
  */
-public class CuentaAhorro extends Cuenta{
+public class CuentaCorriente extends Cuenta{
     
-    public CuentaAhorro(int saldo,int tiempo){
+    public CuentaCorriente(int saldo,int tiempo){
         this.tiempo=tiempo;
         this.saldo= saldo;
-        this.setTipo("Ahorros");
+        this.setTipo("Corriente");
     }
 
     @Override
@@ -22,4 +22,3 @@ public class CuentaAhorro extends Cuenta{
         return this.getTipo() + " - " +this.getSaldo() + " - " +this.getCliente_t()+"-"+this.getTiempo();
     }
 }
-  
