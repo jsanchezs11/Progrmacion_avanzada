@@ -48,9 +48,9 @@ public class main extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jList2 = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,6 +81,11 @@ public class main extends javax.swing.JFrame {
         });
 
         jButton6.setText("ELIMINAR CAJERO");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jList1.setModel(mod);
         jScrollPane1.setViewportView(jList1);
@@ -151,7 +156,9 @@ public class main extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-       
+             
+        
+
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -160,6 +167,14 @@ public class main extends javax.swing.JFrame {
         Crear_persona frm = new Crear_persona();
         frm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    Cajera ca=(Cajera) (jList2.getSelectedValue());
+        controla.eliminarCajera(ca);
+        jList2.setListData(controla.getBanco().getcajeras().toArray());
+       // jList2.setListData(controla.getBanco().g);
+    }//GEN-LAST:event_jButton6ActionPerformed
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
       controla.getBanco().activar();
@@ -207,8 +222,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JList jList1;
+    private javax.swing.JList jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

@@ -52,4 +52,16 @@ Banco banco;
 
         return e;
     }
+       public synchronized Cajera addCajera(String nombre, String cedula,long tiempo){
+        
+        Cajera ca = new Cajera(nombre, cedula,0);
+        
+        banco.addCajera(ca);
+
+        return ca;
+    }
+    public void eliminarCajera(Cajera ca){
+    banco.eliminarCajera(ca);
+    }   
+      
 }

@@ -62,15 +62,13 @@ private ArrayList<Cajera> listcajeras;
         this.listcajeras = listcajeras;
     }
     
-   
-    public void eliminarCliente(Cliente c){
-        this.listacliente.remove(c);
-    }
-    
     
     public void eliminarCajera(Cajera ca){
         this.listcajeras.remove(ca);
         
+    }
+    public ArrayList<Cajera> getcajeras(){
+    return listcajeras;    
     }
     
     public void activar(){
