@@ -63,5 +63,7 @@ Banco banco;
     public void eliminarCajera(Cajera ca){
     banco.eliminarCajera(ca);
     }   
-      
+      public void eliminarCliente(Cliente cli){
+    banco.eliminarCliente(cli);
+    }     
 }

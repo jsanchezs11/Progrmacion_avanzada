@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Vista;
+import Modelo.Cajera;
 import Modelo.Cliente;
 import static Vista.main.mod;
 /**
@@ -89,13 +90,14 @@ public class crear_cajera extends javax.swing.JFrame {
         String nombre = jTextField1.getText();
         String cedula = jTextField2.getText();
         
-        Cliente cli = main.controla.addCliente(nombre, cedula);
-       mod.addElement(cli.getCedula()+"-"+cli.getNombre());
+        Cajera ca = main.controla.addCajera(nombre, cedula, WIDTH);
+         //Cajera ca = main.controla.addCajera(nombre, cedula);
+       mod.addElement(ca.getCedula()+"-"+ca.getNombre());
         
         
         jTextField1.setText("");
-        jTextField1.setText("");
-        jTextField1.setText("");  
+        jTextField2.setText("");
+        
         
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

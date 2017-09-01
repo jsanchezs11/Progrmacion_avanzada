@@ -94,8 +94,8 @@ public class Crear_persona extends javax.swing.JFrame {
         
         
         jTextField1.setText("");
-        jTextField1.setText("");
-        jTextField1.setText("");  
+        jTextField2.setText("");
+    
         
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
